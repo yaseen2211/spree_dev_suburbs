@@ -1,0 +1,17 @@
+
+
+<div data-hook="admin_suburb_new_form_header">
+  <%= render partial: 'spree/admin/shared/error_messages', locals: { target: @suburb } %>
+</div>
+
+<% content_for :page_title do %>
+  <%= link_to Spree.t(:suburbs), spree.admin_state_suburbs_url(@state) %> /
+   <%= Spree.t(:new_suburb) %>
+<% end %>
+
+<%= form_for [:admin, @state, @suburb] do |f| %>
+  <fieldset>
+    <%= render partial: 'form', locals: { f: f } %>
+    <%= render partial: 'spree/admin/shared/new_resource_links' %>
+  </fieldset>
+<% end %>

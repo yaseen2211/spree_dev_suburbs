@@ -1,0 +1,14 @@
+en:
+  spree:
+    admin:
+      tab:
+        suburbs: "Suburbs"
+    new_suburb: "New Suburb"
+    listing_suburbs: "Listing Suburbs"
+    editing_suburb: "Editing Suburb"
+  activerecord:
+    attributes:
+      spree/suburb:
+        name: Name
+        abbr: Abbr
+        belongs_to: Belongs To

@@ -1,0 +1,22 @@
+
+
+<% content_for :page_title do %>
+  <%= Spree.t(:listing_suburbs) %>
+<% end %>
+
+
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:new_suburb), new_admin_state_suburb_url(@state), { class: "btn-success", icon: 'add', id: 'new_suburb_link' } %>
+<% end if can? :create, Spree::Suburb %>
+
+
+<div data-hook="state" class="form-group">
+  <%= label_tag :state, Spree.t(:state) %>
+  <select id="state" class='observe_field select2' data-base-url="<%=admin_suburbs_path(format: :js) %>?state_id=" data-update="#suburbs-list">
+    <%= options_from_collection_for_select(@states, :id, :name, @state.id) %>
+  </select>
+</div>
+
+<div id="suburbs-list" data-hook>
+  <%= render partial: 'suburb_list'%>
+</div>
