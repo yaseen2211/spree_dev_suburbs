@@ -1,0 +1,16 @@
+<div id="suburb_members" data-hook="member">
+  <div class="card mb-3">
+    <div class="card-header">
+      <h1 class="card-title mb-0 h5">
+        <%= Spree.t(:suburbs) %>
+      </h1>
+    </div>
+
+    <div class="card-body">
+      <%= zone_form.field_container :suburb_ids, class: ['form-group'] do %>
+        <%= zone_form.label :suburb_ids, Spree.t(:suburbs) %>
+        <%= zone_form.collection_select :suburb_ids, @suburbs, :id, :name, {}, { multiple: true, class: "select2" } %>
+      <% end %>
+    </div>
+  </div>
+</div>

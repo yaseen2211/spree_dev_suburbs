@@ -1,7 +1,8 @@
 <!-- insert_bottom "[data-hook='admin_tabs']" -->
 <% if can? :admin, Spree::Suburb %>
   <ul class="nav nav-sidebar">
-  	<% if state = Spree::State.first %>
+   <% country = Spree::Country.where(iso:'ae').last %>
+  	<% if state = country.present? ? country.states.first : Spree::State.first %>
     <%= configurations_sidebar_menu_item(Spree.t(:suburbs), spree.admin_state_suburbs_path(state)) if can? :manage, Spree::Suburb %>
   	<% end %>
     <%#= tab(:suburbs, icon: "edit") %>

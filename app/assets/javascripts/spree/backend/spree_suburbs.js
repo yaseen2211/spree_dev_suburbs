@@ -14,3 +14,76 @@ $(document).ready(function () {
     })
   };
 })
+
+
+
+$(function () {
+  var countryBased = $('#country_based')
+  var stateBased = $('#state_based')
+  var suburbBased = $('#suburb_based')
+
+  countryBased.click(show_country)
+  stateBased.click(show_state)
+  suburbBased.click(show_suburb)
+
+  suburbBased.click()
+
+  if (countryBased.is(':checked')) {
+    show_country()
+  } else if (stateBased.is(':checked')) {
+    show_state()
+  } else {
+    show_suburb()
+  }
+})
+// eslint-disable-next-line camelcase
+function show_country () {
+  $('#state_members :input').each(function () {
+    $(this).prop('disabled', true)
+  })
+  $('#state_members').hide()
+  
+  $('#country_members :input').each(function () {
+    $(this).prop('disabled', false)
+  })
+  $('#country_members').show()
+
+  $('#suburb_members :input').each(function () {
+    $(this).prop('disabled', true)
+  })
+  $('#suburb_members').hide()
+}
+// eslint-disable-next-line camelcase
+function show_state () {
+  $('#country_members :input').each(function () {
+    $(this).prop('disabled', true)
+  })
+  $('#country_members').hide()
+
+  $('#suburb_members :input').each(function () {
+    $(this).prop('disabled', true)
+  })
+  $('#suburb_members').hide()
+
+  $('#state_members :input').each(function () {
+    $(this).prop('disabled', false)
+  })
+  $('#state_members').show()
+}
+
+function show_suburb () {
+  $('#country_members :input').each(function () {
+    $(this).prop('disabled', true)
+  })
+  $('#country_members').hide()
+
+  $('#state_members :input').each(function () {
+    $(this).prop('disabled', true)
+  })
+  $('#state_members').hide()
+
+  $('#suburb_members :input').each(function () {
+    $(this).prop('disabled', false)
+  })
+  $('#suburb_members').show()
+}
