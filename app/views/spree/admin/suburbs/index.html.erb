@@ -12,7 +12,7 @@
 
 <div data-hook="state" class="form-group">
   <%= label_tag :state, Spree.t(:state) %>
-  <select id="state" class='observe_field select2' data-base-url="<%=admin_suburbs_path(format: :js) %>?state_id=" data-update="#suburbs-list">
+  <select id="suburb" class='observe_field select2' data-base-url="<%=admin_suburbs_path(format: :js) %>?state_id=" data-update="#suburbs-list">
     <%= options_from_collection_for_select(@states, :id, :name, @state.id) %>
   </select>
 </div>

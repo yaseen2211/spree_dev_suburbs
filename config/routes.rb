@@ -9,4 +9,7 @@ Spree::Core::Engine.add_routes do
       resources :suburbs
     end
   end
+
+  resources :suburbs, only: [:index]
+
 end
